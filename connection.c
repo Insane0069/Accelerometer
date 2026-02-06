@@ -44,7 +44,6 @@ void mpu6050_read_accel(float *ax, float *ay, float *az) {
 
 int main() {
     stdio_init_all();
-    //sleep_ms(2000);     // USB for console output
     i2c_init();          // Your I2C driver
     mpu6050_init();      // Wake up and configure MPU6050
 
