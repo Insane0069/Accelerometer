@@ -1,32 +1,34 @@
 # Accelerometer
-# Pico Accelerometer Project (MPU6050 + Raspberry Pi Pico)
+# 📦 Raspberry Pi Pico + MPU6050 Accelerometer (Bare Metal)
 
-This project reads **acceleration data** from an MPU6050 over **bare-metal I2C** using a **Raspberry Pi Pico**, and prints the live readings over USB using `printf()`.
-
-> ✔️ Bare-metal I2C driver  
-> ✔️ MPU6050 configured in ±2g mode  
-> ✔️ USB `printf()` output to PuTTY / serial monitor  
-> ✔️ Written in C with Raspberry Pi Pico SDK
+This project reads real-time **acceleration data** from an **MPU6050** using **bare-metal I2C** (no SDK drivers) on the **Raspberry Pi Pico**, and outputs it over **USB** as a virtual serial device.
 
 ---
 
-## 🧰 Hardware
+## 🧰 Hardware Connections
 
-| Module        | Connection           |
-|---------------|----------------------|
-| MPU6050 VCC   | Pico **3.3V**        |
-| MPU6050 GND   | Pico **GND**         |
-| MPU6050 SDA   | Pico GPIO **4**      |
-| MPU6050 SCL   | Pico GPIO **5**      |
-| 2× 4.1kΩ Pullups | SDA & SCL to 3.3V |
+| MPU6050 Pin | Raspberry Pi Pico |
+|-------------|-------------------|
+| VCC         | 3.3V              |
+| GND         | GND               |
+| SDA         | GPIO4             |
+| SCL         | GPIO5             |
+
+**Pull-up resistors:**  
+Use 4.1kΩ between SDA & 3.3V, and between SCL & 3.3V (recommended).
 
 ---
 
-## 🛠 Build Instructions
+## 📄 Features
 
-```bash
-git clone https://github.com/yourusername/pico-mpu6050-accel.git
-cd pico-mpu6050-accel
-mkdir build && cd build
-cmake ..
-ninja
+- 🧠 Bare-metal I2C driver (no SDK I2C or TinyUSB)
+- 📡 MPU6050 setup: ±2g, 44Hz DLPF, 125Hz sample rate
+- 📤 USB output via `stdio_usb` (`printf()`)
+- 💻 Console-friendly real-time output
+
+---
+
+## 🧪 Sample Console Output
+
+When connected via **PuTTY or Serial Monitor (115200 baud)**:
+
