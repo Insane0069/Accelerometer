@@ -32,3 +32,29 @@ Use 4.1kΩ between SDA & 3.3V, and between SCL & 3.3V (recommended).
 
 When connected via **PuTTY or Serial Monitor (115200 baud)**:
 
+
+---
+
+## 🛠️ Building the Project
+
+### 🧰 Requirements
+
+- Raspberry Pi Pico SDK installed (e.g. in `.pico-sdk/`)
+- ARM GCC toolchain (`arm-none-eabi-gcc`)
+- CMake ≥ 3.13 + Ninja
+- VSCode or CLI terminal
+
+---
+
+### 🔧 Build Instructions
+
+1. Clone the repo or copy project files
+2. Open terminal in the project folder
+3. Run:
+
+```bash
+mkdir build
+cd build
+cmake ..
+ninja
+
