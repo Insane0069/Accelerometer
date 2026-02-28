@@ -1,4 +1,5 @@
 #include "i2c.h"
+#include <stdint.h>
 
 #define I2C_BASE            0x40044000
 #define I2C_TAR             (I2C_BASE + 0x04)
